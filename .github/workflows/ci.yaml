@@ -20,7 +20,7 @@ jobs:
        password: ${{ secrets.TOKEN }}
 
     
-    - name: Build and push the imageto GHCR
+    - name: Build and push the image to GHCR
       run: | 
-        docker build . -t ghcr.io/NarenderChary892/akspractice:latest
-        docker push ghcr.io/NarenderChary892/akspractice:latest
+        docker build . -t ghcr.io/narenderchary892/akspractice:latest
+        docker push ghcr.io/narenderchary892/akspractice:latest
