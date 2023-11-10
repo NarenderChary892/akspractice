@@ -1,6 +1,8 @@
 name: ci
 on: 
-  workflow-dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   publish-docker-image:
