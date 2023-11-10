@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "eH8jrPDww6USnySKg1XTtNjGEym/G8ArAjWjAcfylPv9FBLH9jyPrEVpRhilgto2L28h7NKi+w00ZoD80ENscQ==",
+  "success": true,
+  "projectFilePath": "C:\\dev\\akspractice\\akspractice.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\NarenderUppala\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.18.1\\microsoft.visualstudio.azure.containers.tools.targets.1.18.1.nupkg.sha512"
+  ],
+  "logs": []
+}
