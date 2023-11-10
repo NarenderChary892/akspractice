@@ -1,0 +1,23 @@
+name: ci
+on: 
+  workflow-dispatch:
+
+jobs:
+  publish-docker-image:
+    run-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Login to GitHub container registry
+      uses: docker/login-actions@v1
+      with:
+       registry: ghcr.io
+       username: ${{ github.actor }}
+       password: ${{ github.TOKEN }}
+    
+    - name: Build and push the imageto GHCR
+      run: | 
+        docker build . -t ghcr.io/NarenderChary892/akspractice:latest
+        docker push ghcr.io/NarenderChary892/akspractice:latest
