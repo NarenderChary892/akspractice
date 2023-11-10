@@ -10,14 +10,14 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Login to GitHub container registry
       uses: docker/login-actions@v1
       with:
        registry: ghcr.io
        username: ${{ github.actor }}
-       password: ${{ github.TOKEN }}
+       password: ${{ secrets.TOKEN }}
     
     - name: Build and push the imageto GHCR
       run: | 
