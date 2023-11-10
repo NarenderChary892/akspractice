@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: akspractice
+spec:
+  selector:
+    matchLabels:
+      app: akspractice
+  template:
+    metadata:
+      labels:
+        app: akspractice
+    spec:
+      containers:
+      - name: akspractice
+        image: ghcr.io/narenderchary892/akspractice:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80

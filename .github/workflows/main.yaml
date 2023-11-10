@@ -1,0 +1,50 @@
+name: Build and Deploy App to AKS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  GITHUB_CONTAINER_REGISTRY: ghcr.io/narenderchary892/akspractice:latest
+  CONTAINER_NAME: akspractice
+  RESOURCE_GROUP: Narender-Sandbox
+  CLUSTER_NAME: akspractice
+  DEPLOYMENT_MANIFEST_PATH: k8s/deployment.yaml
+
+jobs:
+  deploy:
+    permissions:
+      actions: read
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CRENDETIALS }}
+      
+      - name: Setup kubelogin for non-interative Login
+        uses: azure/use-kubelogin@v1
+        with:
+          kubelogin-version: 'v0.0.25'
+
+      - name: Get k8s context
+        uses: azure/aks-set-context@v1
+        with: 
+          creds: ${{ secrets.AZURE_CRENDETIALS }}
+          cluster-name: ${{ env.CLUSTER_NAME }}
+          resource-group: ${{ env.RESOURCE_GROUP }}
+          admin: 'false'
+          kubeconfig: ${{ env.KUBECONFIG }}
+
+      - name: Deploy Application
+        uses: Azure/k8s-deploy@v1
+        with:
+          manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}
+          images: ${{ env.GITHUB_CONTAINER_REGISTRY }}
