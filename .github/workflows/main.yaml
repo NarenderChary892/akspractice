@@ -10,7 +10,7 @@ env:
   GITHUB_CONTAINER_REGISTRY: ghcr.io/narenderchary892/akspractice:latest
   CONTAINER_NAME: akspractice
   RESOURCE_GROUP: Narender-Sandbox
-  CLUSTER_NAME: akspractice
+  CLUSTER_NAME: Narender-AKS
   DEPLOYMENT_MANIFEST_PATH: k8s/deployment.yaml
 
 jobs:
