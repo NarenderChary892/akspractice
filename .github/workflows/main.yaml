@@ -11,7 +11,7 @@ env:
   CONTAINER_NAME: akspractice
   RESOURCE_GROUP: Narender-Sandbox
   CLUSTER_NAME: Narender-AKS
-  DEPLOYMENT_MANIFEST_PATH: k8s/deployment.yaml
+  DEPLOYMENT_MANIFEST_PATH: kubernetes/deployment.yaml
 
 jobs:
   deploy:
