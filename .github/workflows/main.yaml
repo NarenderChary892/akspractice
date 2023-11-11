@@ -19,7 +19,7 @@ jobs:
       actions: read
       contents: read
       id-token: write
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -27,7 +27,7 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CRENDETIALS }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
       
       - name: Setup kubelogin for non-interative Login
         uses: azure/use-kubelogin@v1
@@ -37,7 +37,7 @@ jobs:
       - name: Get k8s context
         uses: azure/aks-set-context@v1
         with: 
-          creds: ${{ secrets.AZURE_CRENDETIALS }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
           cluster-name: ${{ env.CLUSTER_NAME }}
           resource-group: ${{ env.RESOURCE_GROUP }}
           admin: 'false'
