@@ -11,6 +11,7 @@ env:
   CONTAINER_NAME: akspractice
   RESOURCE_GROUP: Narender-Sandbox
   CLUSTER_NAME: Narender-AKS
+  DEPLOYMENT_MANIFEST_PATH: k8s/deployment.yaml
 
 jobs:
   deploy:
@@ -45,6 +46,5 @@ jobs:
       - name: Deploy Application
         uses: Azure/k8s-deploy@v4
         with:
-          manifests: | 
-            deployment.yaml
+          manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}        
           images: ${{ env.GITHUB_CONTAINER_REGISTRY }}
