@@ -1,6 +1,6 @@
 1. Create [Azure Kubernetes Service(AKS)](https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-portal?tabs=azure-cli)
 
-2. Give below RBAC access to AKS to yourself you create AKS auth type as "Azure AD authentication with Azure RBAC"
+2. Give below RBAC access to AKS to yourself you create AKS auth type as "Azure AD authentication with Azure RBAC"<br/>
      RBAC name: Azure Kubernetes Service RBAC Cluster Admin
 
 3. Connect to AKS from cmd
