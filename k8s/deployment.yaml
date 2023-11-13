@@ -11,6 +11,8 @@ spec:
       labels:
         app: akspractice
     spec:
+      imagePullSecrets:
+      - name: ghcrsecret
       containers:
       - name: akspractice
         image: ghcr.io/narenderchary892/akspractice:latest
@@ -19,6 +21,4 @@ spec:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 80
-      imagePullSecrets:
-      - name: ghcrsecret
+        - containerPort: 80    
