@@ -4,8 +4,8 @@
      RBAC name: Azure Kubernetes Service RBAC Cluster Admin
 
 3. Connect to AKS from cmd<br/>
-    az account set --subscription subscription-id<br/>
-    az aks get-credentials --resource-group <resource-group-name> --name <aks-name><br/>
+    az account set --subscription SUBSCRIPTION-ID<br/>
+    az aks get-credentials --resource-group RESOURCE-GROUP-NAME --name AKS-NAME<br/>
 
 4. Deploy AKS [dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)<br/>
     kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
@@ -26,11 +26,11 @@
     Note: Make sure add the ghcr token to deployment.yaml if you're using private ghcr
     
 10. Create the GHCR Token<br/>
-    kubectl create secret docker-registry github-container-registry  --docker-server=ghcr.io --docker-username=<your-github-id> --docker-password=<your-github-classic-token><br/>
+    kubectl create secret docker-registry github-container-registry  --docker-server=ghcr.io --docker-username=YOUR-GITHUB-ID --docker-password=YOUR-GITHUB-ACCESS-TOKEN<br/>
     Note: Create a classic token with write and delete package permissions
 
 11. Create the Azure Credentials<br/>
-    az ad sp create-for-rbac --name "narender-aks-sp-sdk-auth" --role contributor --scopes /subscriptions/<subscription-id>/resourceGroups/<resource-group-name> --sdk-auth  
+    az ad sp create-for-rbac --name "narender-aks-sp-sdk-auth" --role contributor --scopes /subscriptions/SUBSCRIPTION-ID/resourceGroups/RESOURCE-GROUP-NAME --sdk-auth  
 
 12.  Create Azure Credentials [secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository) in GitHub actions from above step
 
