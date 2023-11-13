@@ -45,7 +45,6 @@ jobs:
       - name: Deploy application
         uses: Azure/k8s-deploy@v4
         with:
-          namespace: kube-system
           action: deploy
           manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}        
           images: ${{ env.GITHUB_CONTAINER_REGISTRY }}
