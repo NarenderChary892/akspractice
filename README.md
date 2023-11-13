@@ -4,7 +4,7 @@
      RBAC name: Azure Kubernetes Service RBAC Cluster Admin
 
 3. Connect to AKS from cmd<br/>
-    az account set --subscription <subscription-id><br/>
+    az account set --subscription subscription-id<br/>
     az aks get-credentials --resource-group <resource-group-name> --name <aks-name><br/>
 
 4. Deploy AKS [dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)<br/>
